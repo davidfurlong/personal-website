@@ -183,7 +183,7 @@ simpleParser(stream)
 
       .then(mail => {
 
-// use mail.text 
+        // use mail.text 
 
 ...
 ```
