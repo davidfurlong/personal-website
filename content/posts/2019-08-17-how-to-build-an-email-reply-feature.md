@@ -39,13 +39,23 @@ Their goal I describe in this post is to respond to a new message notification i
 
 I'm assuming you have the infrastructure to send notification emails to users in which you can specify the _Reply-To_ header. If you don't have this part, I recommend using a third party service such as _Sendgrid_, _Mandrill_ or _Customer.io_ and following their guides to set up sending emails. We use Sendgrid and their API allows us to send emails including the \`replyTo\` email header.
 
-**Problem 1**
+**Problem:** How do you set up a program that can receive emails and parse their contents?
 
-How do you set up a program that can receive emails and parse their contents?
+When I was trying to figure how I could solve this problem, I asked Andris Reinman, an open source contributor to email tools such as Wildduck I found on Github who kindly helped me out and replied with the following: 
 
-**Problem 2**
+> The most simple solution would be to set up a custom SMTP server application to act as the MX. If you can write Node.js, then I’d suggest you to check out this example of a SMTP server script: https://github.com/nodemailer/smtp-server/blob/master/examples/server.js
+>
+> What you’d have to do with that example would be to check if the recipient seems valid in the onRcptTo handler and then in onData handler send the message to wherever you want to, for example upload to an URL. The stream object is a standard readable stream and it contains the entire rfc822 message.
 
-How to ensure the sender is authorised to post into the message thread and which user they are in that thread?
+Luckily I could code in Node.js and his advice prevented me from trying to set up a full email server such as Mailin or Wildduck, both very complex to setup and maintain projects. 
+
+
+
+**Mini problem:** 
+
+****
+
+**Problem:** How to ensure the sender is authorised to post into the message thread and which user they are in that thread?
 
 
 
