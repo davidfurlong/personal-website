@@ -413,12 +413,11 @@ export function generateReplyAddress(user: User, participant: ConversationPartic
   // Encode secret using hex (encoding must be the same)
 
   const secret = Buffer.from(
-
     tweetnacl.secretbox(Buffer.from(format, 'utf8'), NONCE, emailReplySecret)
-
   ).toString('hex');
 
   return `${secret}@msg.deedmob.com`;
+}
 ```
 
 In order to generate reply addresses we create a string with delimiters ('C', 'U' although the C is not strictly necessary) below  
