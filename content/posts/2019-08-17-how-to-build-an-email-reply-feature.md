@@ -19,6 +19,8 @@ Who are also interested in building a reply-to email based feature for their app
 
 ## What is this feature 📩
 
+\[TODO More context]
+
 ![](/media/screenshot-2019-08-17-at-12.22.18.png "Reply to zendesk support threads")
 
 ![](/media/screenshot-2019-08-17-at-16.17.05.png)
@@ -54,8 +56,6 @@ When I was trying to figure how I could solve this problem, I asked Andris Reinm
 > What you’d have to do with that example would be to check if the recipient seems valid in the onRcptTo handler and then in onData handler send the message to wherever you want to, for example upload to an URL. The stream object is a standard readable stream and it contains the entire rfc822 message.
 
 Luckily I could code in Node.js and his advice prevented me from trying to set up a full email server such as Mailin or Wildduck, both very complex to setup and maintain projects. 
-
-
 
 Here's that code simplified to the bits that we need
 
@@ -957,13 +957,9 @@ export function decodeReplyAddress(address: string) {
 }
 ```
 
-
-
 The second way to build this feature is to use the \`To\` address to authenticate the user. This means we still need to add the thread id to \`replyTo\` to the email address in the email header, but we can do it in plaintext and don't need to keep it secret. The upside of this is that if the user accidentally forwards an email notification that the holder of the email can't successfully authenticate and impersonate that user. A downside is that if the user changes their email address in the app (if they are able to), then old emails will either fail to authenticate, or you need to continue to store all their old email addresses for the purposes of authentication. This option also allows for a shorter email address usually, as brute force attacks on the \`To\` email address are no longer possible. However they may be reasons why this doesn't work well when users have email forwarding rules set up, email aliases, or change their email address without changing it in app. In order to set it up this way we also need to set up additional authentication of emails that the sending email address actually did send that email, which we won't go in to here because I quite frankly don't want to go down that rabbit hole. Zendesk appears to do it this way, and perhaps thats is because their support software doesn't allow users to change the email address for a support query. 
 
 ![](/media/screenshot-2019-08-17-at-12.22.18.png)
-
-
 
 Okay that was longer than I was expecting it to be. Thanks for staying with me. There's some issues you're likely to come across whilst building this feature, and the next section is dedicated to addressing these.
 
