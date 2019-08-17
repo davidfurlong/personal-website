@@ -59,263 +59,99 @@ Luckily I could code in Node.js and his advice prevented me from trying to set u
 
 Here's that code simplified to the bits that we need
 
-```
+```js
 /* eslint no-console: 0 */
-```
 
-```
-
-```
-
-```
 'use strict';
-```
 
-```
-
-```
-
-```
 // Replace '../lib/smtp-server' with 'smtp-server' when running this script outside this directory
-```
 
-```
 const SMTPServer = require('../lib/smtp-server').SMTPServer;
-```
 
-```
-
-```
-
-```
 const SERVER_PORT = 2525;
-```
 
-```
 const SERVER_HOST = false;
-```
 
-```
-
-```
-
-```
 // Connect to this example server by running
-```
 
-```
 //   telnet localhost 2525
-```
 
-```
 // or
-```
 
-```
 //   nc -c localhost 2525
-```
 
-```
-
-```
-
-```
 // Authenticate with this command (username is 'testuser' and password is 'testpass')
-```
 
-```
 //   AUTH PLAIN dGVzdHVzZXIAdGVzdHVzZXIAdGVzdHBhc3M=
-```
 
-```
-
-```
-
-```
 // Setup server
-```
 
-```
 const server = new SMTPServer({
-```
 
-```
     // log to console
-```
 
-```
     logger: true,
-```
 
-```
-
-```
-
-```
     // not required but nice-to-have
-```
 
-```
     banner: 'Welcome to My Awesome SMTP Server',
-```
 
-```
-
-```
-
-```
     // disable STARTTLS to allow authentication in clear text mode
-```
 
-```
     disabledCommands: ['AUTH', 'STARTTLS'],
-```
 
-```
-
-```
-
-```
     // By default only PLAIN and LOGIN are enabled
-```
 
-```
     authMethods: ['PLAIN', 'LOGIN', 'CRAM-MD5'],
-```
 
-```
-
-```
-
-```
     // Accept messages up to 10 MB
-```
 
-```
     size: 10 * 1024 * 1024,
-```
 
-```
-
-```
-
-```
     // allow overriding connection properties. Only makes sense behind proxy
-```
 
-```
     useXClient: true,
-```
 
-```
-
-```
-
-```
     hidePIPELINING: true,
-```
 
-```
-
-```
-
-```
     // use logging of proxied client data. Only makes sense behind proxy
-```
 
-```
     useXForward: true,
-```
 
-```
-
-```
-
-```
     // Handle message stream
-```
 
-```
     onData(stream, session, callback) {
-```
 
-```
         stream.pipe(process.stdout);
-```
 
-```
         stream.on('end', () => {
-```
 
-```
             let err;
-```
 
-```
             if (stream.sizeExceeded) {
-```
 
-```
                 err = new Error('Error: message exceeds fixed maximum message size 10 MB');
-```
 
-```
                 err.responseCode = 552;
-```
 
-```
                 return callback(err);
-```
 
-```
             }
-```
 
-```
             callback(null, 'Message queued as abcdef'); // accept the message once the stream is ended
-```
 
-```
         });
-```
-
-```
     }
-```
 
-```
 });
-```
 
-```
-
-```
-
-```
 server.on('error', err => {
-```
-
-```
     console.log('Error occurred');
-```
-
-```
     console.log(err);
-```
-
-```
 });
-```
 
-```
-
-```
-
-```
 // start listening
-```
 
-```
 server.listen(SERVER_PORT, SERVER_HOST);
 ```
 
@@ -323,13 +159,12 @@ The way this node server works is it runs an SMTP server that listens to the 252
 
 The \`onData(stream, session, callback)\` callback function gives you the email contents as a  _stream_ , specifically a _SMTPServerDataStream._ I don't know the internals here, and you can look into them deeper if you'd like. For our purposes it suffices to know that we can get the \`to\` address via
 
-```
+```js
 const to = session.envelope.rcptTo[0].address;
 ```
-
 and the \`from\` address via
 
-```
+```js
     const from = session.envelope.mailFrom.address;
 ```
 
@@ -337,409 +172,182 @@ The stream gives us the raw email contents which includes a bunch of headers, pr
 
 To parse the raw email contents I found a library called \`mailparser\` which is simple enough (I'm using babel btw)
 
-```
+```js
 const { simpleParser } = require('mailparser');
-```
 
-```
-...
-```
+// ...
 
-```
 onData(stream, session, callback) {
-```
 
-```
 simpleParser(stream)
-```
 
-```
       .then(mail => {
-```
 
-```
 // use mail.text 
-```
 
-```
 ...
 ```
 
 Then we want to remove the bits of \`mail.text\` that are the email signature or email history. We can use the npm library \`mailstrip\` for this task.
 
-```
+```js
+
 const { simpleParser } = require('mailparser');const mailstrip = require('mailstrip');
-```
+// ...
 
-```
-...
-```
-
-```
 onData(stream, session, callback) {
-```
-
-```
 simpleParser(stream)
-```
-
-```
       .then(mail => {const parsedAndStrippedText = mailstrip(mail.text)
-```
-
-```
-...
+// ...
 ```
 
 We now have the message contents, and which email address sent it, and to which email address it was sent. So we have all the information we need to send a new message request to our API. In full this looks like:
 
-```
+```js
 const SMTPServer = require('smtp-server').SMTPServer;
-```
-
-```
-var mailstrip = require('mailstrip');
-```
-
-```
+const mailstrip = require('mailstrip');
 const { simpleParser } = require('mailparser');
-```
-
-```
 import request from 'request';
-```
 
-```
-
-```
-
-```
 const SERVER_PORT = 2525;
-```
 
-```
 const SERVER_HOST = false;
-```
 
-```
-
-```
-
-```
 // Setup server
-```
 
-```
 const server = new SMTPServer({
-```
 
-```
   // log to console
-```
 
-```
   logger: true,
-```
 
-```
-
-```
-
-```
   // not required but nice-to-have
-```
 
-```
   banner: 'Welcome to the Deedmob email-reply-service server',
-```
 
-```
-
-```
-
-```
   // disable STARTTLS to allow authentication in clear text mode
-```
 
-```
   disabledCommands: ['AUTH', 'STARTTLS'],
-```
 
-```
-
-```
-
-```
   // By default only PLAIN and LOGIN are enabled
-```
 
-```
   authMethods: ['PLAIN', 'LOGIN', 'CRAM-MD5'],
-```
 
-```
-
-```
-
-```
   // Accept messages up to 10 MB
-```
 
-```
   size: 10 * 1024 * 1024,
-```
 
-```
-
-```
-
-```
   // allow overriding connection properties. Only makes sense behind proxy
-```
 
-```
   useXClient: true,
-```
 
-```
-
-```
-
-```
   hidePIPELINING: true,
-```
 
-```
-
-```
-
-```
   // use logging of proxied client data. Only makes sense behind proxy
-```
 
-```
   useXForward: true,
-```
 
-```
-
-```
-
-```
   // Validate RCPT TO envelope address. Example allows all addresses that do not start with 'deny'
-```
 
-```
   // If this method is not set, all addresses are allowed
-```
 
-```
   // onRcptTo(address, session, callback) {
-```
 
-```
   //   if (!(/^user-/i.test(address.address) || /^org-/i.test(address.address))) {
-```
 
-```
   //     return callback(new Error('Not accepted'));
-```
 
-```
   //   }
-```
 
-```
   //
-```
 
-```
   //   callback();
-```
 
-```
   // },
-```
 
-```
-
-```
-
-```
   // Handle message stream
-```
 
-```
   onData(stream, session, callback) {
-```
 
-```
     const to = session.envelope.rcptTo[0].address;
-```
 
-```
     const from = session.envelope.mailFrom.address;
-```
 
-```
-
-```
-
-```
     simpleParser(stream)
-```
 
-```
       .then(mail => {
-```
-
-```
         console.log(session);
-```
 
-```
         request(
-```
 
-```
           {
-```
 
-```
             method: 'POST',
-```
 
-```
             url: `https://www.mywebsite.com/api/conversations/email-reply`,
-```
 
-```
             json: true,
-```
 
-```
             body: {
-```
 
-```
               to: to,
-```
 
-```
               from: from,
-```
 
-```
               message: mailstrip(mail.text),
-```
 
-```
             },
-```
 
-```
             headers: {
-```
 
-```
               'X-Requested-With': 'XMLHttpRequest',
-```
 
-```
             },
-```
 
-```
           },
-```
 
-```
           (error, response, body) => {
-```
 
-```
             // HANDLE ERRORS
-```
 
-```
             if (error) console.error(error);
-```
 
-```
             else callback(null, 'Message sent'); // accept the message once the stream is ended
-```
 
-```
           }
-```
 
-```
         );
-```
 
-```
       })
-```
 
-```
       .catch(err => {
-```
 
-```
         console.log(err);
-```
 
-```
       });
-```
 
-```
   },
-```
 
-```
 });
-```
 
-```
-
-```
-
-```
 server.on('error', err => {
-```
 
-```
   console.log('Error occurred');
-```
 
-```
   console.log(err);
-```
 
-```
 });
-```
 
-```
-
-```
-
-```
 // start listening
-```
 
-```
 server.listen(SERVER_PORT, SERVER_HOST);
 ```
 
 Note I'm using babel so I also have an \`serverEntry.js\` file which just includes
 
-```
+```js
 require('babel-register');
-```
 
-```
 require('./server');
 ```
 
@@ -749,83 +357,35 @@ which I run with \`node serverEntry.js\`.
 
 Well we need to be able to expose the 2525 port, so I whipped together a \`Dockerfile\`
 
-```
+```docker
 # specify the node base image with your desired version node:<version>
-```
 
-```
 FROM node:8
-```
 
-```
-
-```
-
-```
 # Create app directory
-```
 
-```
 # WORKDIR /usr/src/app
-```
 
-```
-
-```
-
-```
 # Install app dependencies
-```
 
-```
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
-```
 
-```
 # where available (npm@5+)
-```
 
-```
 COPY package*.json ./
-```
 
-```
-
-```
-
-```
 RUN npm install
-```
 
-```
 # If you are building your code for production
-```
 
-```
 # RUN npm install --only=production
-```
 
-```
-
-```
-
-```
 # Bundle app source
-```
 
-```
 COPY . .
-```
 
-```
-
-```
-
-```
 EXPOSE 2525
-```
 
-```
 CMD [ "npm", "start" ]
 ```
 
@@ -845,31 +405,17 @@ The first way to do this, is in the reply-to address before the @ symbol of the 
 
 For simplicity we chose the last option (Note this bit is not my code, but my colleagues):
 
-```
+```js
 const NONCE = Buffer.from('7'.repeat(tweetnacl.secretbox.nonceLength));const emailReplySecret = Buffer.from(config.emailReplySecret);export function generateReplyAddress(user: User, participant: ConversationParticipant) {
-```
-
-```
   const format = `C${participant.get('conversation_id')}U${user.get('id')}`;
-```
-
-```
   // Encode secret using hex (encoding must be the same)
-```
 
-```
   const secret = Buffer.from(
-```
 
-```
     tweetnacl.secretbox(Buffer.from(format, 'utf8'), NONCE, emailReplySecret)
-```
 
-```
   ).toString('hex');
-```
 
-```
   return `${secret}@msg.deedmob.com`;
 ```
 
@@ -877,83 +423,43 @@ In order to generate reply addresses we create a string with delimiters ('C', 'U
 
 and to decode
 
-```
+```js
 export function decodeReplyAddress(address: string) {
-```
 
-```
   const [encryptedSecret, emailAddress] = address.split('@');
-```
 
-```
   const decodedSecret = tweetnacl.secretbox.open(
-```
 
-```
     // Decode secret using hex
-```
 
-```
     Buffer.from(encryptedSecret, 'hex'),
-```
 
-```
     NONCE,
-```
 
-```
     emailReplySecret
-```
 
-```
   );
-```
 
-```
-
-```
-
-```
   if (!decodedSecret) return false;
-```
 
-```
   const secret = Buffer.from(decodedSecret).toString('utf8');
-```
 
-```
   const [conversation_id, poster_user_id, organization_id] = (
-```
 
-```
     secret.match(REPLY_ADDRESS_FORMAT) || ([] as string[])
-```
 
-```
   ).slice(1); // match[0] is the full string
-```
 
-```
   return {
-```
 
-```
     conversation_id: Number(conversation_id),
-```
 
-```
     poster_user_id: Number(poster_user_id),
-```
 
-```
     ...(Number(organization_id) && { organization_id: Number(organization_id) }),
-```
 
-```
   };
-```
 
-```
 }
 ```
 
@@ -982,3 +488,7 @@ Another consideration may be that you actually want people to come to your site 
 During the day I'm the CTO and cofounder at Deedmob, a startup in Amsterdam building software to make volunteering better. Whilst on paper I may be a CTO, I spend most of my time doing product management and I only spend comparatively little time managing engineering and writing code. We built this feature at Deedmob about a year ago to help our customers respond to messages faster, and at the time I couldn't find any guide online, nor did I know much about how email server work. I spent some time meandering around how open source email servers work and how I could implement this feature without going down the rabbit hole of email protocol and server complexity before I asked for help from an expert I found on github, who kindly helped me narrow my search. In the spirit of paying it forward I've written this post in the hopes that it helps someone else in a similar position to me at that time.
 
 _If this post helped you, you have questions or have additions please comment below :)_
+
+__
+
+_// Writing time: 4.5 hours_
