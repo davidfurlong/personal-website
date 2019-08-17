@@ -406,7 +406,9 @@ The first way to do this, is in the reply-to address before the @ symbol of the 
 For simplicity we chose the last option (Note this bit is not my code, but my colleagues):
 
 ```js
-const NONCE = Buffer.from('7'.repeat(tweetnacl.secretbox.nonceLength));const emailReplySecret = Buffer.from(config.emailReplySecret);export function generateReplyAddress(user: User, participant: ConversationParticipant) {
+const NONCE = Buffer.from('7'.repeat(tweetnacl.secretbox.nonceLength));
+const emailReplySecret = Buffer.from(config.emailReplySecret);
+export function generateReplyAddress(user: User, participant: ConversationParticipant) {
   const format = `C${participant.get('conversation_id')}U${user.get('id')}`;
   // Encode secret using hex (encoding must be the same)
 
