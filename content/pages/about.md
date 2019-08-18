@@ -1,12 +1,56 @@
 ---
-title: "About me"
-template: "page"
+template: page
+title: About me
+slug: about
+draft: false
 ---
+I live and work in Amsterdam where I'm the CTO and cofounder of Deedmob.
 
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
+{
+ name: "David Furlong",
+ birthday: "\*\*/12/1993",
+ languages: \[
+  'en',
+  'de',
+  'pl'
+ ],
+ location: 'Amsterdam, NL',
+ interests: \[
+  'Philosophy',
+  'Intelligent Systems',
+  'Effective Altruism',
+  'Software Engineering',
+  'Building Products',
+ ],
+ certifications: \[{
+  type: 'Bachelors Degree',
+  awarded_by: 'Oxford University',
+  subject: 'Computer Science and Philosophy',
+  score: '2.1'
+ }]
+}
 
-![Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.](/media/image-2.jpg)
+## Past Roles
 
-*Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.*
+**Intern, Stockdraft**
+Cofounder, Cograph
+(OS) Build and explore graphs of information, collaboratively
+Cofounder, Ideajoin
+(OS) Online suggestion boxes for communities
+Rhizi, Frontend Developer
+(OS) Building an open source graph interface
+IT Representative, St. Catherine College, JCR
 
-Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
+## Past hacks
+
+https://github.com/davidfurlong/Coursera-new-tab-extension
+https://github.com/davidfurlong/hackermatch
+http://github.com/davidfurlong/CodeBuddy
+http://github.com/davidfurlong/filters.css
+http://davidfurlong.github.io/amation
+https://github.com/davidfurlong/EagleEye-ThornHackathon
+https://github.com/davidfurlong/minineo4j
+http://ideaflow.io
+https://github.com/davidfurlong/react-local-translations
+https://github.com/davidfurlong/redux-triple-barreled-actions
+https://github.com/davidfurlong/UK-homeless-services-data
