@@ -1,7 +1,7 @@
 ---
 template: page
 title: About me
-slug: about
+slug: pages/about
 draft: false
 ---
 I live and work in Amsterdam where I'm the CTO and cofounder of Deedmob.
