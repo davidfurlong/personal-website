@@ -3,19 +3,13 @@ const getContactHref = (name: string, contact: string) => {
   let href;
 
   switch (name) {
-    case 'twitter':
+    case "twitter":
       href = `https://www.twitter.com/${contact}`;
       break;
-    case 'github':
+    case "github":
       href = `https://github.com/${contact}`;
       break;
-    case 'vkontakte':
-      href = `https://vk.com/${contact}`;
-      break;
-    case 'telegram':
-      href = `https://t.me/${contact}`;
-      break;
-    case 'email':
+    case "email":
       href = `mailto:${contact}`;
       break;
     default:
