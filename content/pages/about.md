@@ -6,6 +6,7 @@ draft: false
 ---
 I live and work in Amsterdam where I'm the CTO and cofounder of Deedmob.
 
+```js
 {
  name: "David Furlong",
  birthday: "\*\*/12/1993",
@@ -29,6 +30,7 @@ I live and work in Amsterdam where I'm the CTO and cofounder of Deedmob.
   score: '2.1'
  }]
 }
+```
 
 ## Past Roles
 
