@@ -505,7 +505,7 @@ Okay that was longer than I was expecting it to be. Thanks for staying with me. 
 
 **Errors in stripping email contents:** I encountered some issues when stripping email contents of their signatures and histories, and sometimes these are not stripped away correctly. There may be a way to improve upon \`mailstrip\` above, but for our cases it only failed to strip out signatures rarely.
 
-**Counter-productivity:** Another consideration may be that you actually want people to come to your site to send the message although its more work for them, well because you show them ads, or you want to remind them to do other things on the site as well. In that case it may not be goal-aligned to provide this convenience feature to your users.
+**Counter-productivity:** You may want people to come to your site to send the message despite it being more work for them, because you make money off ads and want to show them, or you want them to do other things on the site at the same time. In that case it may not be goal-aligned to provide this convenience feature to your users.
 
 ## A little bit about me and why I wrote this post 🤔
 
