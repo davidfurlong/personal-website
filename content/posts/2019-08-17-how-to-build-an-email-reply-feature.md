@@ -1,12 +1,12 @@
 ---
 template: post
-title: '[DRAFT] How to build an email reply feature'
+title: How to build an email reply feature
 slug: how-to-build-an-email-reply-feature
 draft: false
 date: 2019-08-17T10:15:46.844Z
 description: >-
-  How to build an email reply feature by which the end users of your app can
-  reply to an email notification to post a message in your app
+  How to build a feature that makes it possible to reply to an email
+  notification directly to post a message in your app
 category: engineering
 tags:
   - engineering
@@ -505,13 +505,13 @@ Okay that was longer than I was expecting it to be. Thanks for staying with me. 
 
 **Errors in stripping email contents:** I encountered some issues when stripping email contents of their signatures and histories, and sometimes these are not stripped away correctly. There may be a way to improve upon \`mailstrip\` above, but for our cases it only failed to strip out signatures rarely.
 
-Another consideration may be that you actually want people to come to your site to send the message although its more work for them, well because you show them ads, or you want to remind them to do other things on the site as well. In that case it may not be goal-aligned to provide this convenience feature to your users.
+**Counter-productivity:** Another consideration may be that you actually want people to come to your site to send the message although its more work for them, well because you show them ads, or you want to remind them to do other things on the site as well. In that case it may not be goal-aligned to provide this convenience feature to your users.
 
 ## A little bit about me and why I wrote this post 🤔
 
 During the day I'm the CTO and cofounder at Deedmob, a startup in Amsterdam building software to make volunteering better. Whilst on paper I may be a CTO, I spend most of my time doing product management currently. We built this feature at Deedmob about a year ago to help our customers respond to messages faster. I couldn't find an online guide and with very little understanding of how email servers and protocols worked, I asked for help from an expert I found on github, who kindly helped me narrow my search. In the spirit of paying it forward I've written this post in the hopes that it helps someone else in a similar position.
 
-_If this post helped you, you have questions or have additions please comment below :)_
+_If this post helped you, you have questions or have any other interesting use cases of this feature let me know in the comments :)_
 
 __
 
