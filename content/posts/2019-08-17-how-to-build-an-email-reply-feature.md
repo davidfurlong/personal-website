@@ -13,9 +13,7 @@ tags:
 ---
 ## Who this post is for ✅
 
-Engineers or product managers who aren't afraid of a sprinkle of technical references and who aren't afraid to skip all the security talk.
-
-Who are also interested in building a reply-to email based feature for their app.
+Engineers and parts may be useful to product managers who are also interested in building a reply-to email based feature for their app.
 
 ## What is this feature 📩
 
@@ -29,23 +27,25 @@ Who are also interested in building a reply-to email based feature for their app
 
 ## Why it may create value for your users ⏳
 
-People use your app to accomplish a goal, not to gaze confusingly at your snazzy new interface where half the buttons are not where they used to be. Their goal is not navigating your apps experimental navigation, nor trying to remember which email and password or social login they used for your app's login with your _must contain at least 12 characters, !$_- password policy_.
-
-Their goal I describe in this post is to respond to a new message notification in their email inbox, and the fastest and simplest way for them to do that is to reply to the email. 
+The goal of your user which I describe in this post is to respond to a new message notification in their email inbox. The fastest and simplest way for them to achieve their goal is to reply to the email.
 
 > _If your app has message threads that are transactional in nature, and you care about transaction success rates, you probably want to provide this shortcut for users. See limitations at the end of this article for a look into the exclusions for this rule._
 
+An engineer following this guide should be able to be implement the technical parts of this feature in less than a day barring any extensive security auditing needs.
+
 ## How does it work (high level) 🔀
 
-1. Someone posts to a message thread, and another user, let's call him _Jonny_ is subscribed to receive email notifications of new messages to this thread.
-2. Jonny receives an email notification from your app's email servers containing the contents of the message and who sent it, to which thread. This email also indicates that Jonny can reply to the email to respond into the thread.
-3. Jonny hits reply, and the original email's 'reply-to' email address is automatically used to fill the 'To' field of his email. This 'reply-to' email address contains at least information to uniquely identify the messaging thread, usually via a thread id. Jonny writes his message in the email body section and presses send
-4. The email server which your domain's DNS indicates emails should be sent to receives the new email, it looks at the 'To' field, 'Body' field and other fields and send along the new message information to your apps API in order to add a new message to your database.
-5. The message is added to the database and can be seen in your app's interface. Email notifications to the other participants may also be sent
+1. _Johnny_ is subscribed to receive email notifications of new messages to a message thread in your app.
+2. Johnny receives an email notification from your app's email servers containing (1) the contents of a new message (2) who sent it, (3) in which thread it is. The email notes that Johnny can reply to the email to respond into the thread.
+3. Johnny hits reply, and the original email's 'reply-to' email address is automatically used to fill the 'To' field of his email. This 'reply-to' email address contains at least information to uniquely identify the messaging thread, usually via a thread id. Johnny writes his message in the email body section and presses send
+4. The email server which your domain's [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) points to receives the new email, among other things it looks at the 'To' and 'Body' fields and sends along the new message to your app's [API](https://en.wikipedia.org/wiki/Application_programming_interface) in order to add a new message to your database.
+5. The message is added to your database and can be seen in your app's interface. Email notifications to the other participants may also be sent at this time.
 
 ## How would one build it  🏗
 
-I'm assuming you have the infrastructure to send notification emails to users in which you can specify the _Reply-To_ header. If you don't have this part, I recommend using a third party service such as _Sendgrid_, _Mandrill_ or _Customer.io_ and following their guides to set up sending emails. We use Sendgrid and their API allows us to send emails including the \`replyTo\` email header.
+_I recommend skipping to [Limitations & Considerations](#limitations) if you're not interested in the technical parts._
+
+I'm assuming you have the infrastructure to send notification emails to users in which you can specify the _Reply-To_ header. If you don't have this part, I recommend using a third party service such as _Sendgrid_, _Mandrill_ or _Customer.io_ and following their guides to set up sending emails.
 
 **Problem:** How do you set up a program that can receive emails and parse their contents?
 
@@ -55,7 +55,7 @@ When I was trying to figure how I could solve this problem, I asked Andris Reinm
 >
 > What you’d have to do with that example would be to check if the recipient seems valid in the onRcptTo handler and then in onData handler send the message to wherever you want to, for example upload to an URL. The stream object is a standard readable stream and it contains the entire rfc822 message.
 
-Luckily I could code in Node.js and his advice prevented me from trying to set up a full email server such as Mailin or Wildduck, both very complex to setup and maintain projects. 
+Luckily I could code in Node.js and his advice prevented me from trying to set up a full email server such as Mailin or Wildduck, both very complex to setup and maintain. 
 
 Here's that code simplified to the bits that we need
 
@@ -401,9 +401,31 @@ You then need to point an MX (mail exchanger) record from your domain to the ext
 
 There are two ways to handle this problem that I know of.
 
-The first way to do this, is in the reply-to address before the @ symbol of the origin notification email encode information which conveys the thread id, the user id of the notified party and a secret authentication token for the user. There are additional ways you could do this which have slightly different security implications, such as an individual authentication token for a (thread, user) pair which makes it possible to revoke tokens on a (thread, user) basis. However we shouldn't just have a thread secret token because this would allow one user to impersonate another user in the same thread. This might not be obvious if your threads are necessarily constrained to be always between two users (such as a direct messaging system), but even impersonating the only other user in the thread may have implications. You can also use one secret that concatenate with the user id and thread ids that you then use a one-way hash on. This method is simpler in that you don't need to generate and store tokens on users or (user, thread) pairs, but also is susceptible to different types of attacks, which depend partially on the hash you use and how you concatenate the secret. It also means that if your one secret is compromised the attacker can post as any user in any thread, and that if you change the secret to remove this access, all sent emails 'replyTo' header messages will be out of date and no longer be able to authenticate the corresponding users.
+The first way to do this, is to encode information in the reply-to address before the @ symbol of the origin notification email. This information should convey the thread id, the user id of the notified person and a secret authentication token for the user. 
 
-For simplicity we chose the last option (Note this bit is not my code, but my colleagues):
+There are different configurations of this method which have different security properties:
+
+(1) Use a stored secret authentication token for each (thread, user) pair. 
+
+(2) Combine the unique identifiers of users and threads with a secret and then perform a one-way, collision resistant hash on the combined string.
+
+(3) Use a stored secret authentication token for each (last_message, user) pair which makes it possible
+
+Pros and cons of (1), (2) and (3):
+
+(1) 
+*Pros:* possible to revoke tokens
+*Cons:* [Replay attacks](https://en.wikipedia.org/wiki/Replay_attack), need to store additional information
+
+(2)
+*Pros:* no need to store additional information
+*Cons:* Depending on the hash function chosen and the defense against an attacker generating accounts, threads and brute force attempts it may be have properties which make it too possible to guess the secret or send unauthorized messages to other threads. Replay attacks are also possible. If your one secret is compromised the attacker can post as any user in any thread, and that if you change the secret to remove this access, all sent emails 'replyTo' header messages will be out of date and no longer be able to authenticate the corresponding users. Revoking tokens is not possible.
+
+(3) 
+*Pros:* Replay attacks are not possible, Revoking tokens is possible.
+*Cons:* More information needs to be stored
+
+In this post the code of option (2) is shown:
 
 ```js
 const NONCE = Buffer.from('7'.repeat(tweetnacl.secretbox.nonceLength));
@@ -470,26 +492,27 @@ The second way to build this feature is to use the \`To\` address to authenticat
 
 Okay that was longer than I was expecting it to be. Thanks for staying with me. There's some issues you're likely to come across whilst building this feature, and the next section is dedicated to addressing these.
 
+<a name="limitations"></a>
 ## Limitations & Considerations 🚧
 
-**Limited formatting:** Users can only respond in the tools available within an email body field. In our code we assume to only care about plain text, and we strip out all html. But if your in-app interface allows attaching of images perhaps you could also parse embedded or attached images within the email and send them through. People may expect to be able to do everything they can do in normal emails, but if your parser or app can't handle these attachments then we might end of losing some of the information intended to be conveyed by the user without a good way of communicating the constraints to them.
+**Limited formatting:** Users can only respond in the tools available within an email body field. In our code we assume to only care about plain text, and we strip out all html. But if your in-app interface allows attaching images perhaps you could also parse embedded or attached images within the email and send them through. People may expect to be able to do everything they can do in normal emails, but if your parser or app can't handle these attachments then we might end of losing some of the information intended to be conveyed by the user without a good way of communicating the constraints to them.
 
-**Error handling:** If something goes wrong with the email reply, since we don't have control over the user's email client interface, we can't just show them an error message. The best we can do is send them an email in response that the message send was unsuccessful, and why. Alternatively we could send them a confirmation email when it is successful, with the contents. However if it fails, will users really notice? Perhaps both is best.
+**Error handling:** If something goes wrong with the email reply, since we don't have control over the user's email client interface, we can't just show them an error message. The best we can do is send them an email in response that the message was unsuccessful, and why. Alternatively we could send them a confirmation email when it is successful, with the contents. However if it fails, will users really notice? Perhaps both is best.
 
 **Spam:** Your mail server will undoubtedly receive lots of spam emails. We were getting tens of thousands a month. This may affect your server's capacity and resource usage, and its best to validate that the \`to\` address conforms to your structured format as soon as possible and definitely before sending a request through to your app's API.
 
 **Security:** Mentioned previously were some security considerations regarding authentication of identity. Replay attacks are not attempted to be mitigated here, and we assume brute force attacks to be prevented by rate-limiting and DDOS protection of our API (Assumes our secret has sufficiently many possible values). There are ways to improve upon the security of this system and my goal herein is not to cover them nor to present a complete security assessment of the options. Your needs may require different levels of security. Using the \`replyTo\` header instead of the \`from\` address may have security implications if the encryption exists for one but not the other. _When I asked my friend he said most email encryption is fundamentally insecure_, and I'm no expert on the matter, so if you need proper security do your own research.
 
-**Errors in stripping email contents:** We encountered some issues when stripping email contents of their signatures and histories, and sometimes these are not stripped away correctly. There may be a way to improve upon \`mailstrip\` above, but for our cases it only failed to strip out signatures rarely.
+**Errors in stripping email contents:** I encountered some issues when stripping email contents of their signatures and histories, and sometimes these are not stripped away correctly. There may be a way to improve upon \`mailstrip\` above, but for our cases it only failed to strip out signatures rarely.
 
 Another consideration may be that you actually want people to come to your site to send the message although its more work for them, well because you show them ads, or you want to remind them to do other things on the site as well. In that case it may not be goal-aligned to provide this convenience feature to your users.
 
 ## A little bit about me and why I wrote this post 🤔
 
-During the day I'm the CTO and cofounder at Deedmob, a startup in Amsterdam building software to make volunteering better. Whilst on paper I may be a CTO, I spend most of my time doing product management and I only spend comparatively little time managing engineering and writing code. We built this feature at Deedmob about a year ago to help our customers respond to messages faster, and at the time I couldn't find any guide online, nor did I know much about how email server work. I spent some time meandering around how open source email servers work and how I could implement this feature without going down the rabbit hole of email protocol and server complexity before I asked for help from an expert I found on github, who kindly helped me narrow my search. In the spirit of paying it forward I've written this post in the hopes that it helps someone else in a similar position to me at that time.
+During the day I'm the CTO and cofounder at Deedmob, a startup in Amsterdam building software to make volunteering better. Whilst on paper I may be a CTO, I spend most of my time doing product management currently. We built this feature at Deedmob about a year ago to help our customers respond to messages faster. I couldn't find an online guide and with very little understanding of how email servers and protocols worked, I asked for help from an expert I found on github, who kindly helped me narrow my search. In the spirit of paying it forward I've written this post in the hopes that it helps someone else in a similar position.
 
 _If this post helped you, you have questions or have additions please comment below :)_
 
 __
 
-_// Writing time: 4.5 hours_
+_// Writing time: 5.5 hours_
