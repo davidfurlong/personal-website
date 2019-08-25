@@ -17,13 +17,13 @@ Engineers and parts may be useful to product managers who are also interested in
 
 ## What is this feature 📩
 
-\[TODO More context]
-
-![](/media/screenshot-2019-08-17-at-12.22.18.png "Reply to zendesk support threads")
+Many popular services in which you can have a conversation (such as support software) allow you to respond to an email notification directly instead of logging into their interface to reply to a message. 
 
 ![](/media/screenshot-2019-08-17-at-16.17.05.png)
 
 ![](/media/screenshot-2019-08-17-at-16.17.11.png)
+
+_An example of a github notification email you can reply to_
 
 ## Why it may create value for your users ⏳
 
@@ -40,6 +40,9 @@ An engineer following this guide should be able to be implement the technical pa
 3. Johnny hits reply, and the original email's 'reply-to' email address is automatically used to fill the 'To' field of his email. This 'reply-to' email address contains at least information to uniquely identify the messaging thread, usually via a thread id. Johnny writes his message in the email body section and presses send
 4. The email server which your domain's [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) points to receives the new email, among other things it looks at the 'To' and 'Body' fields and sends along the new message to your app's [API](https://en.wikipedia.org/wiki/Application_programming_interface) in order to add a new message to your database.
 5. The message is added to your database and can be seen in your app's interface. Email notifications to the other participants may also be sent at this time.
+
+![](/media/screenshot-2019-08-17-at-12.22.18.png "Reply to zendesk support threads")
+_Note the reply-to address in this example from typeform_
 
 ## How would one build it  🏗
 
@@ -504,6 +507,8 @@ Okay that was longer than I was expecting it to be. Thanks for staying with me. 
 **Security:** Mentioned previously were some security considerations regarding authentication of identity. Replay attacks are not attempted to be mitigated here, and we assume brute force attacks to be prevented by rate-limiting and DDOS protection of our API (Assumes our secret has sufficiently many possible values). There are ways to improve upon the security of this system and my goal herein is not to cover them nor to present a complete security assessment of the options. Your needs may require different levels of security. Using the \`replyTo\` header instead of the \`from\` address may have security implications if the encryption exists for one but not the other. _When I asked my friend he said most email encryption is fundamentally insecure_, and I'm no expert on the matter, so if you need proper security do your own research.
 
 **Errors in stripping email contents:** I encountered some issues when stripping email contents of their signatures and histories, and sometimes these are not stripped away correctly. There may be a way to improve upon \`mailstrip\` above, but for our cases it only failed to strip out signatures rarely.
+
+**Why don't we just use the 'From' for what is now the 'Reply-to' address**: The reply-to email address is hard to read (and often has more than 20 characters for security purposes - and up to 64 characters before the @) and is therefore sometimes perceived to be untrustworthy by users. It is easier for recipients to categorize and for email clients to increase trustworthiness assessments of individual email addresses than it is for all emails sent from a domain.
 
 **Counter-productivity:** You may want people to come to your site to send the message despite it being more work for them, because you make money off ads and want to show them, or you want them to do other things on the site at the same time. In that case it may not be goal-aligned to provide this convenience feature to your users.
 
