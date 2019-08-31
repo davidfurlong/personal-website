@@ -7,7 +7,7 @@ date: 2019-08-31T08:33:03.565Z
 description: '-'
 category: entrepreneuship
 tags:
-  - entrepreneuship
+  - entrepreneurship
 ---
 Outline: 
 
