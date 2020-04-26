@@ -16,11 +16,7 @@ tags:
   - extension
   - browser-extension
 ---
-Like many people in tech I bought into the [superhuman](https://superhuman.com/) email client hype. I begged for an invite. I tried it and discovered I didn't need it. I just had to learn how to manage my mailbox better. 
-
-One thing that I missed after I cancelled the $30/month Superhuman subscription was the beautiful background images Superhuman showed me when I reached inbox zero. 
-
-This browser extension makes your gmail inbox zero a beautiful image, fresh every day from the Unsplash API.
+A little browser extension that makes your gmail background a beautiful image when you reach an empty inbox, with a fresh picture every day. 
 
 Install
 - [Google chrome](https://chrome.google.com/webstore/detail/gmail-inbox-zero-backgrou/fadepmbdhojcogdjcihbhdcbfpacdbdg)
@@ -33,3 +29,6 @@ A preview of what it looks like
 
 [Checkout the source code](https://github.com/davidfurlong/gmail-inbox-zero-background)
 
+Like many people in tech I bought into the [superhuman](https://superhuman.com/) email client hype. I begged for an invite. I tried it and discovered I didn't need it. I just had to learn how to manage my mailbox better. 
+
+One thing that I missed after I cancelled the $30/month Superhuman subscription was the beautiful background images Superhuman showed me when I reached inbox zero. 
