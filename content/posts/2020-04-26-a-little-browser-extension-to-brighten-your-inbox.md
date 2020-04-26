@@ -7,7 +7,7 @@ date: 2020-04-26T14:44:30.963Z
 description: >-
   Makes your inbox zero pretty with a new beautiful image from unsplash every
   day
-category: products
+category: product
 tags:
   - gmail
   - superhuman
