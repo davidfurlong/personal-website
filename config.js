@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = {
-  url: "https://lumen.netlify.com",
+  url: "https://www.davidfurlong.me",
   pathPrefix: "/",
   title: "Blog by David Furlong",
   subtitle:
@@ -9,7 +9,7 @@ module.exports = {
   copyright: "© All rights reserved.",
   disqusShortname: "",
   postsPerPage: 4,
-  googleAnalyticsId: "UA-73379983-2",
+  googleAnalyticsId: "UA-164499506-1",
   useKatex: false,
   menu: [
     {
@@ -29,7 +29,7 @@ module.exports = {
     name: "David Furlong",
     photo: "/photo.jpg",
     bio:
-      "Founder at Deedmob, a platform empowering citizens, charities and companies to do more good. Ex CS & Phil Oxford University",
+      "Founder & CTO at Deedmob, a platform empowering citizens, charities and companies to do more good. Forbes 30 under 30 Social Entrepreneurship. Ex CS & Phil Oxford University",
     contacts: {
       email: "dvfurlong@gmail.com",
       twitter: "davidvfurlong",
