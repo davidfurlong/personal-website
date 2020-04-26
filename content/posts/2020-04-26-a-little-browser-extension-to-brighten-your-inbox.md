@@ -28,6 +28,7 @@ Install
 
 The code is [public](https://github.com/davidfurlong/gmail-inbox-zero-background) and the extension doesn't read your emails 🙂
 
+A preview of what it looks like
 ![Gmail inbox zero background](/media/screenshot-2020-04-26-at-11.45.35.png "Gmail inbox zero background")
 
 [Checkout the source code](https://github.com/davidfurlong/gmail-inbox-zero-background)
