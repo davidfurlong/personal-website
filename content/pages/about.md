@@ -9,21 +9,21 @@ I live and work in Amsterdam where I'm the CTO and cofounder of Deedmob.
 ```js
 {
  name: "David Furlong",
- birthday: "\*\*/12/1993",
- languages: \[
+ birthday: "**/12/1993",
+ languages: [
   'en',
   'de',
   'pl'
  ],
  location: 'Amsterdam, NL',
- interests: \[
+ interests: [
   'Philosophy',
   'Intelligent Systems',
   'Effective Altruism',
   'Software Engineering',
   'Building Products',
  ],
- certifications: \[{
+ certifications: [{
   type: 'Bachelors Degree',
   awarded_by: 'Oxford University',
   subject: 'Computer Science and Philosophy',
@@ -43,8 +43,10 @@ Rhizi, Frontend Developer
 (OS) Building an open source graph interface
 IT Representative, St. Catherine College, JCR
 
-## Past hacks
+## Projects
 
+https://github.com/davidfurlong/gmail-inbox-zero-background
+https://github.com/davidfurlong/friendsandgames
 https://github.com/davidfurlong/Coursera-new-tab-extension
 https://github.com/davidfurlong/hackermatch
 http://github.com/davidfurlong/CodeBuddy
@@ -56,3 +58,4 @@ http://ideaflow.io
 https://github.com/davidfurlong/react-local-translations
 https://github.com/davidfurlong/redux-triple-barreled-actions
 https://github.com/davidfurlong/UK-homeless-services-data
+https://github.com/willzeng/cograph
