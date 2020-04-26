@@ -16,7 +16,9 @@ tags:
   - extension
   - browser-extension
 ---
-Like many people in tech I bought into the [superhuman](https://superhuman.com/) email client hype. I begged for an invite. I tried it and found out I was just bad at managing my email inbox. One thing that I missed after I cancelled the $30/month Superhuman subscription was the beautiful background images Superhuman showed when I reached inbox zero. 
+Like many people in tech I bought into the [superhuman](https://superhuman.com/) email client hype. I begged for an invite. I tried it and discovered I didn't need it. I just had to learn how to manage my mailbox better. 
+
+One thing that I missed after I cancelled the $30/month Superhuman subscription was the beautiful background images Superhuman showed me when I reached inbox zero. 
 
 This browser extension makes your gmail inbox zero a beautiful image, fresh every day from the Unsplash API. 
 
