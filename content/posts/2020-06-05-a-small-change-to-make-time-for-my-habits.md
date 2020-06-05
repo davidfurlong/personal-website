@@ -2,7 +2,7 @@
 template: post
 title: A small change to make time for my habits
 slug: small-change
-draft: true
+draft: false
 date: 2020-06-05T06:44:03.704Z
 description: A short reflection on my habits
 category: self
