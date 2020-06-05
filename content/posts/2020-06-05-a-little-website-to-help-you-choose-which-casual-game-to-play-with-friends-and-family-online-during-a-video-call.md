@@ -2,7 +2,7 @@
 template: post
 title: >-
   A little website to help you choose which casual game to play with friends and
-  family online during a video call
+  family
 slug: friends-and-games
 draft: false
 date: 2020-06-05T06:20:39.567Z
