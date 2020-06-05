@@ -2,7 +2,7 @@
 template: post
 title: Systematic nudges for healthier digital habits
 slug: systematic-nudges-for-healthier-digital-habits
-draft: true
+draft: false
 date: 2020-06-05T06:55:57.854Z
 description: >-
   Here's a list of nudges I use to reduce addictive/thoughtless consumption of
