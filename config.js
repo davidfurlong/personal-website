@@ -3,7 +3,7 @@
 module.exports = {
   url: "https://www.davidfurlong.me",
   pathPrefix: "/",
-  title: "Blog by David Furlong",
+  title: "David Furlong",
   subtitle:
     "Founder at Deedmob, a platform empowering citizens, charities and companies to do more good. Ex CS & Phil Oxford University",
   copyright: "© All rights reserved.",
