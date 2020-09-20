@@ -6,7 +6,7 @@ module.exports = {
   title: "David Furlong",
   subtitle:
     "Founder at Deedmob, a platform empowering citizens, charities and companies to do more good. Ex CS & Phil Oxford University",
-  copyright: "© All rights reserved.",
+  copyright: "© Copyright 2020",
   disqusShortname: "",
   postsPerPage: 4,
   googleAnalyticsId: "UA-164499506-1",
