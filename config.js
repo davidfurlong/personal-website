@@ -33,7 +33,7 @@ module.exports = {
     name: "David Furlong",
     photo: "/photo.jpg",
     bio:
-      "Founder & CTO at Deedmob, a platform empowering citizens, charities and companies to do more good. Forbes 30 under 30 Social Entrepreneurship. Ex CS & Phil Oxford University",
+      "Founder & CTO at Deedmob, a platform empowering citizens, charities and companies to do more good. Forbes 30 under 30 Social Entrepreneurship. Ex CS & Phil Oxford University. Working on codebird.app in my free time.",
     contacts: {
       email: "dvfurlong@gmail.com",
       twitter: "davidvfurlong",
