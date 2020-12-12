@@ -1,6 +1,6 @@
 ---
 template: page
-title: sdfsdf me
+title: Contact me
 slug: pages/contacts
 draft: false
 ---
