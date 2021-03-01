@@ -1,6 +1,6 @@
 ---
 template: post
-title: Refactors
+title: Perils of code refactors
 slug: refactors
 draft: true
 date: 2021-03-01T20:34:50.892Z
