@@ -2,7 +2,7 @@
 template: post
 title: Perils of code refactors
 slug: refactors
-draft: true
+draft: false
 date: 2021-03-01T20:34:50.892Z
 description: >-
   Code refactors are a tricky thing. It's easy when wearing an engineer hat to
