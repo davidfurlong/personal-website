@@ -29,5 +29,5 @@ It's hard to be effective as a company if teams are playing against each other i
 - Communicate the *why* when it comes to work and tasks
 - Build better, stronger relationships between team members (culture)
 - Improve planning to avoid stressful, urgent work if possible
-- Align the team around shared metrics rather than individual metrics
+- Align the team around shared metrics rather than individual metrics. "Engineering" performance metrics if any should account for any negative externalities engineering may produce on other teams or team performance. This can be really hard to do.
 - Make sure performance reviews and personal incentives aren't possibly misaligned with the team incentives
