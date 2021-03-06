@@ -18,7 +18,7 @@ Today Coursera's S-1 was published, which is a financial document the company cr
 1. Coursera grew from 46 million total registered users in 2019 to 77 million in 2020, boosted from a typical 20% YOY growth to 67% by covid. 
 2. The S-1 doesn't mention active users at all, suggesting the active users figure is disappointing, and with how short coursera's courses are this wouldn't surprise me. There's also nothing on user retention. Both of these metrics are important indicators of Coursera's performance.
 3. Last year the Degrees business of Coursera grew from \$6 million to \$12 million
-4. Coursera did \$293 million in revenue in 2020, and the "Cost of revenue" was \$138 million. This cost of revenue is mostly paying universities their cut for their content. Universities are getting slightly less than half the revenue generated for the non degree courses on Coursera.
+4. Coursera did \$293 million in revenue in 2020, and the Cost of revenue was \$138 million. This cost of revenue is mostly paying universities their cut for their content. Universities are getting slightly less than half the revenue generated for the non degree courses on Coursera.
 5. 86% of user acquisition is organic for Coursera, but they don't list a channel breakdown unfortunately
 6. The CEO was compensated \$14.9 million in 2020 in salary, stock and option grants. That's more than 5% of Coursera's revenue 🤯 This is likely because Coursera overperformed on their revenue targets (largely due to covid) and most of the compensation was performance based.
 7. 40% of the company is still owned by executives and founders
