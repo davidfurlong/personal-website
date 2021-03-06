@@ -42,4 +42,28 @@ Universities with strong brands will also feel like they should get more than 50
 
 Part of the reason Coursera has such low customer acquisition costs is because people go to Coursera to search for content on how to learn something. However other platforms are increasingly competing for that right and it seems doubtful that Coursera is going to win the fight for where users start their search. I expect Google to make moves in this area, adding a domain specific search engine for learning similar to the way they have done for flights and hotels. They just haven't done it yet as it's less easily monetized. When they do, coursera may become more of a video hosting platform with quizzes for universities with a 50% revenue fee as they have less of an ability to drive customers to content. At that point Coursera will have had to made the jump to having certificates that carry weight in the career market or started innovating on content or I think it will struggle to be massively relevant. Many people in silicon valley think that the university system, particularly regarding fees in the US is fundamentally broken. It's easy for software engineers to think that universities and degrees aren't necessary when people in their profession often don't require them. Universities are slow to change and Coursera is bringing "digital transformation" to some of the slowest to change organizations around. That business in the short to mid term will work great even if it feels like Coursera isn't really making a big improvement in how people learn. Putting learning content online for free is great for the world and I hope Coursera finds a good way to balance is impact mission with it's revenue-performance based compensation for its executives, as those can sometimes be in tension.
 
+\---
+
+## Coursera's strengths and weaknesses
+
+**Strengths**
+
+Strong growth (67% YOY)
+
+Strong gross margins (~50%) and fundamentals
+
+Large network of content creating universities with large audiences and credibility
+
+Strong brand awareness and trust. About a third of Hackernews responses were sharing a story of how a Coursera course impacted someone's life and career.
+
+**Weaknesses**
+
+Universities with the strongest brands are mostly not choosing Coursera. EdX though having half as many users as Coursera has MIT, Stanford and Harvard. 
+
+Coursera's certificates don't mean much in the workplace or for hiring managers right now, and Coursera monetizes around these. About a third of hackernews comments on the S-1 were commenting that the certificates had no little to no perceived value. Most of Coursera's courses have tests that are graded automatically by software, so most of the tests are multiple choice which makes them not the best tests of aptitude as well as easy to cheat on or have software complete the course for you. Coursera needs to make courses and tests more rigorous in order to build credibility, but that will likely increase the costs to them per student if it involves humans marking results, and that means courses with credible certificates will have to remain paid. 
+
+I'm speculating here but I don't think Coursera is winning the best enterprise customers. Coursera feels like they are catering to large slow moving companies that want "digital transformation" but is not winning top startups or companies known to be very innovative like Google. This means Coursera's product is being developed for enterprise features and the focus is on satisfying these customers rather than driving end user outcomes which are very difficult to measure. While this is a great way to build revenue, in the long term the company may not be focused on solving the problem of learning as much as it is focused on convincing their customers that they are doing a good job with learning.
+
+As a user of Coursera I find the product lacking. It's not very engaging, it has no streaks, no gamification, few social features and feels like videos and multiple choice quizzes in a white word document. Sure the universities creating the content are probably not the best content creators, but would it hurt to add a bit more design to the product, add some more pictures the quizzes and help people set learning goals, like Duolingo does?
+
 You can find the S-1 here: <https://www.sec.gov/Archives/edgar/data/1651562/000119312521071525/d65490ds1.htm>
