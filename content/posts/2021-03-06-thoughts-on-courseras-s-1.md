@@ -4,7 +4,7 @@ title: Thoughts on Coursera's S-1
 slug: coursera-s-1
 draft: false
 date: 2021-03-06T19:45:24.132Z
-description: Some of the insights from their data and some of my thoughts on their market
+description: Insights from their data and some of my thoughts on their market
 category: entrepreneurship
 tags:
   - entrepreneurship
