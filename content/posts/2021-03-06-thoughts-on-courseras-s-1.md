@@ -48,8 +48,6 @@ I expect Google to make moves in this area in the future, adding a domain specif
 
 Many people in tech think that the university system, particularly the fees in the US is fundamentally broken. It's easy for software engineers to think that universities and degrees aren't necessary when people in their profession often don't require them. Universities are slow to change and Coursera is bringing "digital transformation" to some of the slowest to change organizations around. That business in the short to mid term will work great even if it feels like Coursera isn't really making a big improvement in how people learn. Putting learning content online for free is great for the world and I hope Coursera finds a good way to balance is impact mission with it's revenue-performance based compensation for its executives, as those can sometimes be in tension.
 
-\---
-
 ## Coursera's strengths and weaknesses
 
 **Strengths**
