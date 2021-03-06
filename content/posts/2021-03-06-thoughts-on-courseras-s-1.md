@@ -9,7 +9,7 @@ category: entrepreneurship
 tags:
   - entrepreneurship
 ---
-Coursera is an online learning platform that partners with universities to publish university-like courses which can be completed by anyone, from home. It recently added degrees which are real degrees with partner universities, such as a Masters in Software Engineering. These degrees cost between 1K-10K$ and the online courses vary from free to 99$ or with a pay-for-a-certificate model.
+Coursera is an online learning platform that partners with universities to publish university-like courses which can be completed by anyone, from home. It recently added degrees which are real degrees with partner universities, such as a Masters in Software Engineering. These degrees cost between 1K-10K$ and the online courses vary from free to $99 or with a pay-for-a-certificate model.
 
 Today Coursera's S-1 was published, which is a financial document the company creates with the intention of listing its company publicly on a stock exchange, and this is called an IPO event. It lets the company's shareholders sell their shares in the company and allows private and public investors to buy into the company.
 
