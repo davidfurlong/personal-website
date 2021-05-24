@@ -13,7 +13,7 @@ module.exports = {
   useKatex: false,
   menu: [
     {
-      label: "Articles",
+      label: "Things I have written",
       path: "/"
     },
     {
@@ -25,12 +25,12 @@ module.exports = {
       path: "/pages/contacts"
     },
     {
-      label: "Products",
+      label: "Products I have made",
       path: "/pages/products"
     }
   ],
   author: {
-    name: "David F urlong",
+    name: "David Furlong",
     photo: "/photo.png",
     bio:
       "Founder & CTO at Deedmob, a platform empowering citizens, charities and companies to do more good. Forbes 30 under 30 Social Entrepreneurship. Ex CS & Phil Oxford University",
