@@ -19,8 +19,8 @@ https://www.deedmob.com
 
 ## Friends and games
 
-https://friendsand.games
+https://github.com/davidfurlong/friendsandgames
 
-## Gmail inbox zero background
+## gmail inbox zero background
 
-https://chrome.google.com/webstore/detail/gmail-inbox-zero-backgrou/fadepmbdhojcogdjcihbhdcbfpacdbdg?hl=en
+https://chrome.google.com/webstore/detail/gmail-inbox-zero-backgrou/fadepmbdhojcogdjcihbhdcbfpacdbdg?hl=en-GB&authuser=0
