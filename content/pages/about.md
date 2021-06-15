@@ -4,7 +4,8 @@ title: About me
 slug: pages/about
 draft: false
 ---
-I live and work in Amsterdam where I'm the CTO and cofounder of Deedmob.
+
+I live and work in Berlin where I'm the CTO and cofounder of Deedmob.
 
 ```js
 {
