@@ -4,6 +4,10 @@ title: Javascript in Sheets fast and easy with Formulas
 slug: javascript-in-google-sheets
 draft: false
 ---
+\[Insert Addon url when published]
+
+
+
 ## Support, Bug reporting & Feedback
 
 If something isn't working or you have some feedback about the add-on, you can send me an email at dvfurlong@gmail.com :)
