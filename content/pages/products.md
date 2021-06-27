@@ -4,6 +4,9 @@ title: Products
 slug: pages/products
 draft: false
 ---
+## Javascript in Sheets fast and easy with Formulas
+
+https://davidfurlong.me/javascript-in-google-sheets
 
 ## Erase distractions
 
@@ -21,6 +24,6 @@ https://www.deedmob.com
 
 https://github.com/davidfurlong/friendsandgames
 
-## gmail inbox zero background
+## Gmail inbox zero background
 
 https://chrome.google.com/webstore/detail/gmail-inbox-zero-backgrou/fadepmbdhojcogdjcihbhdcbfpacdbdg?hl=en-GB&authuser=0
