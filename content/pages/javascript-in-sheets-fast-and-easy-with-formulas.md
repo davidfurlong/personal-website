@@ -6,7 +6,7 @@ draft: false
 ---
 Javascript in Sheets fast and easy with Formulas is a google sheets add-on that provides you with helpful formulas to use javascript in your sheets.
 
-After installing this add-on you should have access to the following formulas in google sheets. You can access them by typing =JS at the start of a cell
+After installing this add-on you should have access to the following formulas in google sheets.
 
 ## Formulas
 
