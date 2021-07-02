@@ -95,7 +95,7 @@ Debug a javascript function by seeing the generated JS code that will be execute
 
 Debug a javascript expression by seeing the generated JS code that will be executed. Takes the same arguments as =JS() except will return the string of the JS that will be \`eval\`ed instead of invoking \`eval\`
 
-### \=JS_DEBUG_TYPE(arg: any)
+### \=JS\_DEBUG\_TYPE(arg: any)
 
 Debug a value and typeof when a cell or other value is passed to a javascript function
 
