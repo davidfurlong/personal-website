@@ -11,7 +11,15 @@ After installing this add-on you should have access to the following formulas in
 ## Formulas
 ### \=JS(jsArrowFunctionInQuotes: string, ...args)
 
-Write a javascript function. You can also pass in cell ranges which will call your arrow function with an array of the cell values. 
+Write a javascript function.
+
+For example 
+
+```
+=JS("(a) => a.join('')", C1:C3)
+=JS("(a, b) => Math.pow(a, b)", C1, C2)
+=JS("(a) => { var x = 10; x = a + x; return x }", C1)
+```
 
 @param {jsArrowFunctionInQuotes} a javascript arrow function surrounded by quotation marks
 
@@ -19,15 +27,20 @@ Write a javascript function. You can also pass in cell ranges which will call yo
 
 @return the return value of the javascript code run with \`eval\` and invoked as a function with the provided arguments, essentially eval((arg1)(arg2, arg3, ...))
 
-For example 
-
-```
-=JS("(a) => a.join('')", C1:C3)
-```
 
 ### \=JSE(jsExpressionInQuotes: string, ...args)
 
-Write a javascript expression. You can also pass in cell ranges which will replace your subsitution tokens with an array of the cell values. 
+Write a javascript expression. 
+
+
+For example 
+
+```
+=JSE("$1.length", C1:C3)
+=JSE("$1.join('')", C1:C3)
+=JSE("Math.pow($1, $2)", C1, C2)
+=JSE("{ var x = 10; x = $1 + x; return x }", C1)
+```
 
 @param {jsExpressionInQuotes} a javascript expression surrounded by quotation marks, in which $1, $2, $3... will be replaced by additional arg1, arg2, arg3 respectively
 
@@ -35,15 +48,14 @@ Write a javascript expression. You can also pass in cell ranges which will repla
 
 \* @return the return value of the javascript code run with \`eval\` after substituting in the provided arguments
 
-For example 
-
-```
-=JSE("$1.length", C1:C3)
-```
-
 ### \=FETCH(url: string, params?: string)
 
 Makes a request to fetch a URL
+
+For example
+```
+=FETCH('www.google.com', '{ method: "POST", payload: { cat: true } }')
+```
 
 @param {url} url to fetch
 
@@ -51,27 +63,23 @@ Makes a request to fetch a URL
 
  @return the response body of the completed request as text
 
-For example
-
-```
-=FETCH('www.google.com', '{ method: "POST", payload: { cat: true } }')
-```
 
 ### \=FETCHJSON(url: string, params?: string)
 
-Makes a request to fetch a URL with a contentType: application/json header. Is shorthand for =FETCH(<URL>, "{ contentType: application/json }")
+Makes a request to fetch a URL with a contentType: application/json header.
+
+For example
+```
+=FETCHJSON("https://aws.random.cat/meow")
+```
+
+Is shorthand for =FETCH(<URL>, "{ contentType: application/json }")
 
 @param {url} to fetch
 
 @param {params}  a JS object in quotes. For example '{ method: "POST", payload: { cat: true } }' See all options at https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app#advanced-parameters
 
 @return the response body of the completed request as text
-
-For example
-
-```
-=FETCHJSON("https://aws.random.cat/meow")
-```
 
 ## Additional Formulas for debugging
 
