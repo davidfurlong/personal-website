@@ -27,6 +27,10 @@ module.exports = {
     {
       label: "Products I have made",
       path: "/pages/products"
+    },
+    {
+      label: "JS in google sheets",
+      path: "/pages/javascript-in-google-sheets"
     }
   ],
   author: {
