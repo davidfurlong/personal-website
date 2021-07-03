@@ -30,7 +30,7 @@ module.exports = {
     },
     {
       label: "JS in google sheets",
-      path: "/pages/javascript-in-google-sheets"
+      path: "/javascript-in-google-sheets"
     }
   ],
   author: {
