@@ -1,6 +1,6 @@
 ---
 template: post
-title: Thoughts on Coursera's S-1
+title: Coursera S-1 and the future of education
 slug: coursera-s-1
 draft: false
 date: 2021-03-06T19:45:24.132Z
@@ -13,7 +13,7 @@ Coursera is an online learning platform that partners with universities to publi
 
 Today Coursera's S-1 was published, which is a financial document the company creates with the intention of listing its company publicly on a stock exchange, and this is called an IPO event. It lets the company's shareholders sell their shares in the company and allows private and public investors to buy into the company.
 
-## Some of the interesting things from the S-1:
+## Some of the interesting things from the Coursera S-1:
 
 1. Coursera grew from 46 million total registered users in 2019 to 77 million in 2020, boosted from a typical 20% YOY growth to 67% by covid. 
 2. The S-1 doesn't mention active users at all, suggesting the active users figure is disappointing, and with how short coursera's courses are this wouldn't surprise me. There's also nothing on user retention. Both of these metrics are important indicators of Coursera's performance.
