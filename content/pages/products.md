@@ -40,6 +40,12 @@ https://codebird.app
 
 ### 2016-2022 Deedmob (startup)
 
+![](/media/screenshot-2022-04-24-at-18.00.25.png)
+
+![](/media/screenshot-2022-04-24-at-18.01.38.png)
+
+![](/media/screenshot-2022-04-24-at-18.02.58.png)
+
 https://www.deedmob.com
 
 ### 2020 Friends and games
