@@ -36,8 +36,7 @@ https://davidfurlong.me/javascript-in-google-sheets
 
 ### 2020 Codebird (a shutdown bootstrapped side project)
 
-https://codebird.app
-
+Codebird made it easy for anyone in a team to edit their website or app without knowing how to code and without integrating a CMS. The browser extension created an inline editor for any text, images or links on the website and any changes made by you would be automatically made in the code by figuring out how to where in the codebase the text was and how to update it. It failed because I didn't have a good way to distribute it, and neglected marketing for too long.
 
 [![](/media/screenshot-2022-06-10-at-14.43.58.png)](https://vimeo.com/manage/videos/719083461)
 
