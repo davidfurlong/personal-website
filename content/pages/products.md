@@ -38,6 +38,9 @@ https://davidfurlong.me/javascript-in-google-sheets
 
 https://codebird.app
 
+
+[![](/media/screenshot-2022-06-10-at-14.43.58.png)](https://vimeo.com/manage/videos/719083461)
+
 ### 2016-2022 Deedmob (startup)
 
 ![](/media/screenshot-2022-04-24-at-18.00.25.png)
