@@ -84,6 +84,8 @@ https://chrome.google.com/webstore/detail/gmail-inbox-zero-backgrou/fadepmbdhojc
 
 ## Hackathon projects
 
+### 2022 Soulbound token contract creator tool & contracts for NEAR protocol
+
 ### 2016 Codebuddy
 
 Suggests vscode shortcuts as you use vscode and do the actions manually which the shortcut could do.
