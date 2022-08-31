@@ -4,6 +4,12 @@ title: Products I have made
 slug: pages/products
 draft: false
 ---
+### 2022 Anycaster
+
+Explore anyone's farcaster feed. Farcaster is a decentralized social protocol.
+
+[Anycaster](https://farcaster.vercel.app/)
+
 ### 2022 NFT Hat
 
 A homemade hat with a touchscreen, built with a raspberry pi, display and portable battery. The hat mode picker comes with a way to control it remotely or via phone via websockets.
