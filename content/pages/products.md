@@ -14,6 +14,8 @@ Explore anyone's farcaster feed. Farcaster is a decentralized social protocol.
 
 A homemade hat with a touchscreen, built with a raspberry pi, display and portable battery. The hat mode picker comes with a way to control it remotely or via phone via websockets.
 
+[NFT Hat Build guide & demo video](https://davidfurlong.me/interactive-nft-hat-build-guide)
+
 ### 2022 Art Blocks (generative art on the blockchain) code viewer
 
 ![](/media/screenshot-2022-04-24-at-17.57.00.png)
