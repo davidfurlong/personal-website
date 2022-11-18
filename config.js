@@ -5,7 +5,7 @@ module.exports = {
   pathPrefix: "/",
   title: "David Furlong",
   subtitle:
-    "Founder at Deedmob, a platform empowering citizens, charities and companies to do more good. Ex CS & Phil Oxford University",
+    "Building discove.xyz. Prev: founder at Deedmob, a platform empowering citizens, charities and companies to do more good. Ex CS & Phil Oxford University",
   copyright: "",
   disqusShortname: "",
   postsPerPage: 4,
@@ -14,34 +14,33 @@ module.exports = {
   menu: [
     {
       label: "Things I have written",
-      path: "/"
+      path: "/",
     },
     {
       label: "About me",
-      path: "/pages/about"
+      path: "/pages/about",
     },
     {
       label: "Contact me",
-      path: "/pages/contacts"
+      path: "/pages/contacts",
     },
     {
       label: "Products I have made",
-      path: "/pages/products"
+      path: "/pages/products",
     },
     {
       label: "JS in google sheets",
-      path: "/javascript-in-google-sheets"
-    }
+      path: "/javascript-in-google-sheets",
+    },
   ],
   author: {
     name: "David Furlong",
     photo: "/photo.png",
-    bio:
-      "Founder & CTO at Deedmob, a platform empowering citizens, charities and companies to do more good. Forbes 30 under 30 Social Entrepreneurship. Ex CS & Phil Oxford University",
+    bio: "Building discove.xyz. Prev:Founder & CTO at Deedmob, a platform empowering citizens, charities and companies to do more good. Forbes 30 under 30 Social Entrepreneurship. Ex CS & Phil Oxford University",
     contacts: {
       email: "dvfurlong@gmail.com",
       twitter: "davidvfurlong",
-      github: "davidfurlong"
-    }
-  }
+      github: "davidfurlong",
+    },
+  },
 };
