@@ -4,6 +4,10 @@ title: Products I have made
 slug: pages/products
 draft: false
 ---
+### 2022 Discove
+
+[Discove](https://www.discove.xyz)
+
 ### 2022 Anycaster
 
 Explore anyone's farcaster feed. Farcaster is a decentralized social protocol.
@@ -91,6 +95,8 @@ https://chrome.google.com/webstore/detail/gmail-inbox-zero-backgrou/fadepmbdhojc
 ### 2012 - 2022 Redoing my personal website 4 times 🤦‍♂️
 
 ## Hackathon projects
+
+### 2022 Athens protocol at ETHBerlin - winner of Manta Network prize and main prize of best smart contracts
 
 ### 2022 Soulbound token contract creator tool & contracts for NEAR protocol
 
